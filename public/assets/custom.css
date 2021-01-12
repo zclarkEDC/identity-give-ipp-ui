@@ -1,0 +1,14 @@
+.usa-banner__header {
+    display: flex;
+  }
+
+  .border-top {
+    border-top: 1px solid #cedced;
+}
+.btn-block {
+  width: 100%;
+}
+.usa-alert__heading {
+  font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-size: 1.2em;
+}

@@ -1,0 +1,104 @@
+{
+  "_from": "identity-style-guide",
+  "_id": "identity-style-guide@2.2.3",
+  "_inBundle": false,
+  "_integrity": "sha512-bAPgCic/ztIUOLyEofToecfhIiM8b1WNlRj0rOhYr1/zZHL4NPhLjQ2HBURTiGyxEhm/22n1gxprDuilxLLLBw==",
+  "_location": "/identity-style-guide",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "identity-style-guide",
+    "name": "identity-style-guide",
+    "escapedName": "identity-style-guide",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/identity-style-guide/-/identity-style-guide-2.2.3.tgz",
+  "_shasum": "e6d6b6b10a65d0e97877d35e5e00f3850ed23a62",
+  "_spec": "identity-style-guide",
+  "_where": "C:\\Users\\zclark\\Documents\\demo-ui-for-login",
+  "author": {
+    "name": "18F"
+  },
+  "bugs": {
+    "url": "https://github.com/18F/identity-style-guide/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "zxcvbn": "^4.4.2"
+  },
+  "deprecated": false,
+  "description": "The global style of login.gov",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "acorn": "^6.2.1",
+    "autoprefixer": "^9.6.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.3.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "domready": "^1.0.8",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "get-port-cli": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^8.0.0",
+    "gulp-uglify": "^3.0.2",
+    "jest": "^23.6.0",
+    "jest-puppeteer": "^3.9.1",
+    "pa11y-ci": "^2.3.0",
+    "path": "^0.12.7",
+    "puppeteer": "^1.18.1",
+    "serve": "^10.1.2",
+    "stylelint": "^9.10.1",
+    "stylelint-scss": "^3.9.2",
+    "uswds": "^2.0.3",
+    "uswds-gulp": "github:uswds/uswds-gulp",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "wait-on": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=10.x.x",
+    "npm": ">6.x.x"
+  },
+  "files": [
+    "dist/assets/**/*"
+  ],
+  "homepage": "https://github.com/18F/identity-style-guide#readme",
+  "license": "CC0-1.0",
+  "name": "identity-style-guide",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18F/identity-style-guide.git"
+  },
+  "scripts": {
+    "build": "make build",
+    "clean": "make clean",
+    "federalist": "npm install && make build-assets",
+    "lint": "make lint",
+    "prepare": "make install-jekyll",
+    "prepublishOnly": "make lint && make clean && make build-assets",
+    "start": "make start",
+    "test": "make test",
+    "test-jest": "make test-runner-jest",
+    "test-pa11y": "make test-runner-pa11y"
+  },
+  "version": "2.2.3"
+}

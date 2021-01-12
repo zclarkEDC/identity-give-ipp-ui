@@ -1,1 +1,0 @@
-# ipp-frontend-app
