@@ -6,8 +6,8 @@ This application utilizes React JS to host the necessary UI for the IPP microser
 - React Router `npm install react-router-dom`
 
 ### Getting started
-1. Enter `npm install` into the console, this will install the node_modules
-2. Enter `npm start` into the console, this will start the app on port 3000 in your browser
+1. Enter `npm install` into the console, this will install the node_modules.
+2. Enter `npm start` into the console, this will start the app on port 3000 in your browser.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
