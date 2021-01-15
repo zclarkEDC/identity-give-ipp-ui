@@ -13,8 +13,8 @@ class Details extends Component {
                 
                 <div class="grid-row">
                     <div class="grid-col-8">
-                        <h4>{this.props.location.state.targetItem}</h4>223 Langworth Lights<br/>Colorado Springs, CO 80107<br/><a
-                            >555-123-6409</a>
+                        <h4>{this.props.location.state.targetItem}</h4>{this.props.location.state.itema}<br/>{this.props.location.state.itemb}, {this.props.location.state.itemc} {this.props.location.state.itemd}<br/><a
+                            >{this.props.location.state.iteme}</a>
 
                     </div>
                     <div class="grid-col-1"></div>

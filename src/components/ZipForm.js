@@ -168,12 +168,13 @@ import Results from './Results';
 import { postcodeValidator} from 'postcode-validator';
 import ZipInput from './ZipInput';
 import Button from './Button';
-import Error from './Error'
+import Error from './Error';
+import axios from 'axios';
 
 class ZipForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: '', showResults: false, submittedval: '', showError: false};
+      this.state = {value: '', showResults: false, submittedval: '', showError: false, items:[]};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -185,11 +186,15 @@ class ZipForm extends React.Component {
     handleSubmit(event) {
       event.preventDefault();
       let zip_input = this.state.value;
+      let values = this.state.value;
       if (postcodeValidator(zip_input, 'US')){
         //alert('Valid zipcode, beep boop');
         this.setState({showResults: true});
         this.setState({showError: false});
         this.setState({submittedval: this.state.value});
+        this.fetchData(values);
+        
+        
       }
       else{
         //alert('Invalid zipcode, beep boop');
@@ -199,6 +204,51 @@ class ZipForm extends React.Component {
       }
       
     }
+    fetchData = async values => {
+      const { title, tbody, userID } = values;
+      const axios = require('axios');
+      let config = {
+        method: 'get',
+        url: "https://jsonplaceholder.typicode.com/users"
+      };
+      axios(config)
+       .then((response) => {
+         console.log(JSON.stringify(response.data));
+         this.setState({ items: JSON.parse(JSON.stringify(response.data)) })
+         //this.setState({ api_response: response.data})
+         //console.log(this.state.api_response)
+         //console.log(response)
+         /*
+        var arr = [];
+        for (var id in response.data) {
+        arr.push(response.data[id]);
+        console.log(arr);
+        this.setState({api_response: arr});*/
+
+         
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+       
+
+    }
+    
+    /*
+      const apiURL = "https://jsonplaceholder.typicode.com/users";
+      const response = await axios.post(apiURL, body)
+      console.log(JSON.stringify(response.data))
+      alert(JSON.stringify(response.data))
+      this.setState({ api_response: response.data })
+      this.setState({submittedval: this.state.value});//results near
+    }
+    
+    handleNameChange = name => {
+      this.setState({ name })
+    }
+    <Results api_response={this.state.api_response} onNameChange={this.handleNameChange} />
+    */
+
     
     render() {
         
@@ -236,8 +286,10 @@ class ZipForm extends React.Component {
               className="btn btn-primary btn-wide"
               
             />
-            { this.state.showResults ? <Results item={this.state.submittedval}/> : null }
+            { this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval}/> : null }
+            
             { this.state.showError ? <Error item={this.state.submittedval}/> : null }
+          
             </form>
             </div>
             <div class="mt2 pt1 border-top">

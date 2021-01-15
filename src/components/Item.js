@@ -7,20 +7,20 @@ class Item extends Component {
         return (
             
                 <div>
-                    <h2>{this.props.item.name}</h2>
+                    <h2>{this.props.item.email}</h2>
 
                     <div class="grid-row">
                         <div class="grid-col-8">
-                            <p>{this.props.item.street}<br />{this.props.item.city}, {this.props.item.state} {this.props.item.zip}<br /><a href="url">{this.props.item.phone}</a></p>
+                            <p>{this.props.item.address.street}<br />{this.props.item.address.city}, {this.props.item.address.state} {this.props.item.address.zipcode}<br /><a href="url">{this.props.item.phone}</a></p>
                         </div>
                         <div class="grid-col-2"></div>
-                        <div class="grid-col-2 text-right"><b>{this.props.item.distance} mi</b></div>
+                        <div class="grid-col-2 text-right"><b>10 mi</b></div>
                     </div>
 
 
                     <Link to={{
                         pathname: '/details',
-                        state: { targetItem: this.props.item.name }
+                        state: { targetItem: this.props.item.email, itema: this.props.item.address.street, itemb: this.props.item.address.city, itemc: this.props.item.address.state, itemd: this.props.item.address.zipcode, iteme: this.props.item.phone }
 
                     }}><div class="grid-row"><input type="submit" name="submit"
                         class="btn btn-primary btn-block mt0" data-disable-with="Select this branch" /></div></Link>
