@@ -27,7 +27,7 @@ class ZipForm extends React.Component {
       this.setState({ showResults: true });
       this.setState({ showError: false });
       this.setState({ submittedval: this.state.value });
-      this.fetchData(values);
+      this.fetchData(values); //make the API call, this will include the actual zipcode for future calls
 
 
     }
@@ -40,11 +40,11 @@ class ZipForm extends React.Component {
 
   }
   fetchData = async values => {
-    const { title, tbody, userID } = values;
-    const axios = require('axios');
+    const { value } = values; //placeholder for API calls made with the actual zipcode
     let config = {
       method: 'get',
       url: "https://jsonplaceholder.typicode.com/users"
+      //data: values this is where the zip info would be placed
     };
     axios(config)
       .then((response) => {
@@ -54,14 +54,11 @@ class ZipForm extends React.Component {
       .catch((error) => {
         console.log(error);
       });
-
-
   }
 
   render() {
 
     return (
-
 
       <div class="container">
         <div class="px2 py2 sm-py5 sm-px6 mx-auto sm-mb5 border-box card" role="main">
