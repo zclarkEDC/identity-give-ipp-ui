@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "identity-style-guide/dist/assets/css/styles.css";
 import './index.css';
 import 'identity-style-guide/dist/assets/js/main.js'
 import '../node_modules/identity-style-guide/dist/assets/js/main.js'
-//import 'identity-style-guide/dist/assets/css/styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
