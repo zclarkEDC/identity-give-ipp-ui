@@ -4,7 +4,6 @@ import {Link } from 'react-router-dom';
 class Details extends Component {
 
     componentDidMount(){
-        //const {targetItem} = this.props.location.state.targetItem
         console.log("the target item is", this.props.location.state.targetItem)
     }
     render() {
@@ -27,4 +26,3 @@ class Details extends Component {
 }
 
 export default Details;
-
