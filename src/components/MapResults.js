@@ -12,10 +12,7 @@ class MapResults extends Component {
 
             <div>
                  <p class='mt-tiny mb0'>Results near {this.props.zipitem.display_name}</p>
-                 <p>{this.props.zipitem.boundingbox[0]}</p>
-                 <p>{this.props.zipitem.boundingbox[1]}</p>
-                 <p>{this.props.zipitem.boundingbox[2]}</p>
-                 <p>{this.props.zipitem.boundingbox[3]}</p>
+                 <br></br>
                  <MapContainer bounds={zipitemBounds} zoom={13} scrollWheelZoom={true}>
           <TileLayer
             attribution='hi'
@@ -24,6 +21,7 @@ class MapResults extends Component {
           {this.props.coords.map((item) =>
           <MapLocation key={item.id} item={item} />)}
         </MapContainer>
+       
                  
             </div>
         );
