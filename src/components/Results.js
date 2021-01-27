@@ -1,8 +1,6 @@
 import React from 'react';
 import Item from './Item';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import MapLocation from './MapLocation'
-
+import MapResults from './MapResults';
 
 class Results extends React.Component {
 
@@ -11,32 +9,22 @@ class Results extends React.Component {
   }
 
   render() {
+    const coords = this.props.items;
 
     return (
       <div id="results" className="search-results">
         <br></br>
         <hr>
         </hr>
-        <p class='mt-tiny mb0'>
-          Results near postal code {this.props.item}
-        </p>
+        {this.props.itemzip.map((zipitem) =>
+          <MapResults key={zipitem.place_id} zipitem={zipitem} coords={coords} />)}
         <br></br>
-        <MapContainer center={[38.91390733397534, -77.21661199423156]} zoom={13} scrollWheelZoom={true}>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {this.props.items.map((item) =>
-          <MapLocation key={item.id} item={item} />)}
-        </MapContainer>
         <br></br>
         <hr>
         </hr>
         {this.props.items.map((item) =>
           <Item key={item.id} item={item} />)}
-        
       </div>
-
     );
   }
 }
