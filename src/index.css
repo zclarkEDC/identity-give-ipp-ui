@@ -30,3 +30,7 @@ font-size: 1.2em;
   width: 100%;
   height: 270px;
 }
+body {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
