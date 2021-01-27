@@ -11,7 +11,7 @@ import axios from 'axios';
 class ZipForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', showResults: false, submittedval: '', showError: false, items: [] };
+    this.state = { value: '', showResults: false, submittedval: '', showError: false, items: [], zipresponse: [] };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,15 +23,11 @@ class ZipForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let zip_input = this.state.value;
-    let values = this.state.value;
     if (postcodeValidator(zip_input, 'US')) {
       //alert('Valid zipcode, beep boop');
-      this.setState({ showResults: true });
-      this.setState({ showError: false });
       this.setState({ submittedval: this.state.value });
-      this.fetchData(values); //make the API call, this will include the actual zipcode for future calls
-
-
+      this.fetchAddressFromZip(this.state.value);
+      
     }
     else {
       //alert('Invalid zipcode, beep boop');
@@ -58,8 +54,50 @@ class ZipForm extends React.Component {
       });
   }
 
-  render() {
 
+  //This method makes a call to OSM to determine the address based on the Zipcode
+  fetchAddressFromZip = async zipcode => {
+    console.log('zipcode going in');
+    console.log(zipcode);
+    let config = {
+      method: 'get',
+      url: 'https://nominatim.openstreetmap.org/search',
+      params: {
+        postalcode: zipcode,
+        country: 'US',
+        format: 'json'
+      }
+    }
+    axios(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        this.setState({ zipresponse: JSON.parse(JSON.stringify(response.data)) })
+        console.log(this.state.zipresponse)
+
+        //Validate if OSM returned any location results
+        if (this.state.zipresponse?.length) {
+          console.log('this array has stuff in it ok? here it is:', this.state.zipresponse)
+          this.fetchData(zipcode);
+          this.setState({ showResults: true });
+          this.setState({ showError: false });
+
+
+        }
+        else {
+          console.log('no results found, empty array', this.state.zipresponse)
+          this.setState({ showResults: false });
+          this.setState({ showError: true });
+          
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+
+  render() {
+    
     return (
 
       <div class="container">
@@ -95,23 +133,16 @@ class ZipForm extends React.Component {
                 className="btn btn-primary btn-wide"
 
               />
-              {this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval} /> : null}
-
-
+              {this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval} itemzip={this.state.zipresponse} /> : null}
 
             </form>
           </div>
           <div class="mt2 pt1 border-top">
             <a href="https://secure.login.gov/">Cancel</a>
           </div>
-          
-
- 
-
 
         </div>
       </div>
-
 
     );
   }
