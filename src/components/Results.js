@@ -19,8 +19,6 @@ class Results extends React.Component {
         {this.props.itemzip.map((zipitem) =>
           <MapResults key={zipitem.place_id} zipitem={zipitem} coords={coords} />)}
         <br></br>
-        <hr>
-        </hr>
         {this.props.items.map((item) =>
           <Item key={item.id} item={item} />)}
       </div>
