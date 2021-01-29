@@ -13,7 +13,7 @@ render() {
             <ScrollToTop />
             <div>
                 <Switch>
-                    <Route exact path="/" component={ZipForm}>
+                    <Route exact path="/"> <ZipForm/>
                     </Route>
                     <Route path="/details" component={DetailsPage}>
                     </Route>
