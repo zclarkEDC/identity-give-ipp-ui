@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Details from './Details';
-
+import Deadline from './Deadline';
 
 
 class DetailsPage extends React.Component {
@@ -26,17 +26,7 @@ class DetailsPage extends React.Component {
                 <h1 class="h3 my0">
                     Details to verify your identity in person
                 </h1>
-
-
-                <div class="usa-alert usa-alert--info">
-                    <div class="usa-alert__body">
-                        <h3 class="usa-alert__heading">Your deadline to verify your identity in person is December 7,
-                            2020.</h3>
-                        <p class="usa-alert__text">The identity services center will not save your information after
-                            December 7, 2020. If you show up after the deadline, they will not be able to verify your
-                            identity and you will need to restart the verification process.</p>
-                    </div>
-                </div>
+                <Deadline />
                 <br/>
                 <p class='mt-tiny mb0'>
                     You will need to stop by an identity services center to finalize your verification process. No
