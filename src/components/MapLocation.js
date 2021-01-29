@@ -10,9 +10,7 @@ class MapLocation extends Component {
 
             <div>
                 <Marker position={[x,y]}>
-                    <Popup> <h1 class="h3 my0" >
-            Verify your identity in person
-                </h1>{this.props.item.title}<br /> Easily customizable.</Popup>
+                    <Popup> <h6>{this.props.item.title}</h6><p>{this.props.item.address}<br />{this.props.item.city}, {this.props.item.state} {this.props.item.postalCode}<br /><a href="url">{this.props.item.phone}</a></p></Popup>
                 </Marker>
 
             </div>
