@@ -11,13 +11,15 @@ class Details extends Component {
             
                 
                 <div class="grid-row">
+                    <h4>{this.props.location.state.title}</h4>
                     <div class="grid-col-8">
-                        <h4>{this.props.location.state.targetItem}</h4>{this.props.location.state.itema}<br/>{this.props.location.state.itemb}, {this.props.location.state.itemc} {this.props.location.state.itemd}<br/><a
+                        {this.props.location.state.itema}<br/>
+                        {this.props.location.state.itemb}, {this.props.location.state.itemc} {this.props.location.state.itemd}<br/><a
                             >{this.props.location.state.iteme}</a>
 
                     </div>
                     <div class="grid-col-1"></div>
-                    <div class="grid-col-3"><br/><br/><br/><Link to="/"><a >Change Branch</a></Link></div>
+                    <div class="grid-col-3"><br/><Link to="/"><a >Change Branch</a></Link></div>
                 </div>
             
 
