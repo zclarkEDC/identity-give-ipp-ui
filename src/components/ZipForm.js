@@ -147,7 +147,7 @@ class ZipForm extends React.Component {
       <div class="container">
         <div class="px2 py2 sm-py5 sm-px6 mx-auto sm-mb5 border-box card" role="main">
 
-          {this.state.showError ? <Error item={this.state.submittedval} /> : null}
+          {this.state.showError ? <Error item={this.state.submittedval} message='is not a valid zip code!' /> : null}
 
           <h1 class="h3 my0" >
             Verify your identity in person
@@ -158,6 +158,13 @@ class ZipForm extends React.Component {
                 </p>
           <div class="mb4">
             <form class="simple_form mt3 sm-mt3 new_user" onSubmit={this.handleSubmit} accept-charset="UTF-8">
+            <div class="mb3 zip required zip">
+      <label class="bold zip required" for="zip"><abbr
+        title="required" pattern="^\d{5}(?:[-\s]\d{4})?$" class="red display-none">*</abbr> Find an
+                                identity services center near you:</label>
+      <div class="mb1 text-hint">
+        <span>Enter postal code</span>
+        </div>
 
               <ZipInput
                 name="zip"
@@ -170,6 +177,7 @@ class ZipForm extends React.Component {
                 aria-required="true"
                 id="zip"
               />
+              </div>
               <Button
                 type="submit"
                 value="Submit"
@@ -177,7 +185,7 @@ class ZipForm extends React.Component {
                 className="btn btn-primary btn-wide"
 
               />
-              {this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval} itemzip={this.state.zipresponse} /> : null}
+              {this.state.showResults ? <Results items={this.state.items} auth={this.state.authtoken} item={this.state.submittedval} itemzip={this.state.zipresponse} /> : null}
 
             </form>
           </div>
