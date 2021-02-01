@@ -16,6 +16,7 @@ class DetailsPage extends React.Component {
 
 
     render() {
+        //console.log(this.props.location.state.auth);
         
         return (
 
@@ -148,7 +149,11 @@ class DetailsPage extends React.Component {
                     <input type="submit" name="print" value="Print this Page"
                         class="px2 py2 usa-button usa-button--outline btn-wide"
                         data-disable-with="Print this Page"></input><br/><br/>
-                    <Link to="/email_confirmation"><input type="submit" name="email" value="Email this Page"
+                    <Link to={{
+                    pathname: '/email_confirmation',
+                    state: { auth: this.props.location.state.auth}
+
+                }} ><input type="submit" name="email" value="Email this Page"
                         class="px2 py2 usa-button usa-button--outline btn-wide"
                         data-disable-with="Email this Page"></input></Link>
                 </form>
