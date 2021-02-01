@@ -20,7 +20,7 @@ class Results extends React.Component {
           <MapResults key={zipitem.place_id} zipitem={zipitem} coords={coords} />)}
         <br></br>
         {this.props.items.map((item) =>
-          <Item key={item.id} item={item} />)}
+          <Item key={item.id} item={item} auth={this.props.auth} />)}
       </div>
     );
   }
