@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 class Item extends Component {
 
     render() {
+        var oldtitle = this.props.item.title;
+        var fixedtitle = oldtitle.replace('&#8482', '\u2122');
         return (
 
             <div>
                 <hr></hr>
-                <h2>{this.props.item.title}</h2>
+                <h2>{fixedtitle}</h2>
 
                 <div class="grid-row">
                     <div class="grid-col-8">
@@ -21,7 +23,7 @@ class Item extends Component {
 
                 <Link to={{
                     pathname: '/details',
-                    state: { title: this.props.item.title, itema: this.props.item.address, itemb: this.props.item.city, itemc: this.props.item.state, itemd: this.props.item.postalCode, iteme: this.props.item.phone }
+                    state: { title: fixedtitle, itema: this.props.item.address, itemb: this.props.item.city, itemc: this.props.item.state, itemd: this.props.item.postalCode, iteme: this.props.item.phone, auth: this.props.auth}
 
                 }}><div class="grid-row"><input type="submit" name="submit"
                     class="btn btn-primary btn-block mt0" value="Select this branch" data-disable-with="Select this branch" /></div></Link>
