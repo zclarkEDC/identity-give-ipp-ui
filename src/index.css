@@ -12,7 +12,12 @@ code {
     monospace;
 }
 .usa-banner__header {
-  display: flex;
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #1b1b1b;
+}
+.usa-banner__button-text{
+  color: #005ea2;
 }
 
 .border-top {
@@ -33,4 +38,30 @@ font-size: 1.2em;
 body {
   overflow-x: hidden;
   margin-right: calc(-1 * (100vw - 100%));
+}
+.lockspan{
+  height: 1.5ex;
+  width: 1.21875ex;
+}
+
+
+.usa-accordion{
+  background-color: #f0f0f0;
+}
+.usa-banner__content{
+  margin-left: 0px;
+  margin-right: 0px;
+
+}
+.nav-nonbranded img {
+    height: 35px;
+}
+
+
+html{
+  background-color: transparent;
+}
+.usa-footer__primary-section {
+  padding-top: 0;
+  padding-bottom: 0;
 }
