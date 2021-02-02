@@ -11,13 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.usa-banner__header {
-  display: inline-block;
-  background-color: #f0f0f0;
-  color: #1b1b1b;
-}
+
 .usa-banner__button-text{
-  color: #005ea2;
+  color: #FFFFFF;
 }
 
 .border-top {
@@ -45,18 +41,19 @@ body {
 }
 
 
-.usa-accordion{
-  background-color: #f0f0f0;
-}
-.usa-banner__content{
-  margin-left: 0px;
-  margin-right: 0px;
 
-}
 .nav-nonbranded img {
     height: 35px;
 }
+.usa-banner__content{
+  justify-content: center;
+  display: block;
+  
 
+}
+.usa-banner__header{
+  display:block;
+}
 
 html{
   background-color: transparent;
@@ -64,4 +61,18 @@ html{
 .usa-footer__primary-section {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+#printer{
+  line-height: 1.0;
+  text-align: right;
+  color: #0071bb;
+}
+
+#detailspage{
+  padding-top: 2rem;
+}
+
+.bg-light-blue {
+  background-color: #f1f1f1;
 }
