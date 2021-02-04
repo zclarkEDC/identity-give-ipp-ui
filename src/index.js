@@ -14,7 +14,7 @@ import Logo from './components/SiteLogo';
 accordion.on();
 
 ReactDOM.render(
-  <div><div class="site-wrap bg-light-blue"><Banner/><Logo/><App/></div></div>,
+  <div class="site-wrap bg-light-blue"><Banner/><Logo/><App/></div>,
   document.getElementById('root')
 );
 
