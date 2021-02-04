@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.usa-banner__button-text{
+  color: #FFFFFF;
+}
+
+.border-top {
+  border-top: 1px solid #cedced;
+}
+.btn-block {
+width: 100%;
+}
+.usa-alert__heading {
+font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+font-size: 1.2em;
+}
+#mapid { height: 180px; }
+.leaflet-container {
+  width: 100%;
+  height: 270px;
+}
+body {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+.lockspan{
+  height: 1.5ex;
+  width: 1.21875ex;
+}
+
+
+
+.nav-nonbranded img {
+    height: 35px;
+}
+.usa-banner__content{
+  justify-content: center;
+  display: block;
+  
+
+}
+.usa-banner__header{
+  display:block;
+}
+
+html{
+  background-color: transparent;
+}
+.usa-footer__primary-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#printer{
+  line-height: 1.0;
+  text-align: right;
+  color: #0071bb;
+}
+
+#detailspage{
+  padding-top: 2rem;
+}
+
+.bg-light-blue {
+  background-color: #f1f1f1;
+}
+
+<!-- -->
+.App-link {
+  color: #61dafb;
+}
+
+.usa-banner__header {
+  display: flex;
+}
+
+.border-top {
+  border-top: 1px solid #cedced;
+}
+.btn-block {
+  width: 100%;
+}
+.usa-alert__heading {
+  font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-size: 1.2em;
+}

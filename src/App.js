@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import DetailsPage from './components/DetailsPage';
 import EmailPage from './components/EmailPage';
-import ZipForm from './components/ZipForm'
-import ScrollToTop from './components/ScrollToTop' //place the <ScrollToTop/> component below BrowserRouter, this seems to make the UI screen transations more abrupt
+import ScrollToTop from './components/ScrollToTop'
+import FindServiceCenter from "./views/FindServiceCenter";
+import EmailSentConfirmation from "./views/EmailSentConfirmation"; //place the <ScrollToTop/> component below BrowserRouter, this seems to make the UI screen transations more abrupt
 
-
-class App extends Component {
-render() {
+function App() {
     return (
         <BrowserRouter>
-            <ScrollToTop />
-            <div>
-                <Switch>
-                    <Route exact path="/"> <ZipForm/>
-                    </Route>
-                    <Route path="/details" component={DetailsPage}>
-                    </Route>
-                    <Route path="/email_confirmation" component={EmailPage}>
-                    </Route>
-
-                </Switch>
-            </div>
+            <ScrollToTop/>
+            <Switch>
+                <Route exact path="/" render={props => <FindServiceCenter {...props} />} />
+                <Route exact path="/details" render={props => <DetailsPage {...props} />} />
+                <Route exact path="/email_confirmation" render={props => <EmailSentConfirmation {...props} />} />
+                <Route path="/email_confirmation" component={EmailPage} />
+            </Switch>
         </BrowserRouter>
     );
-}
 }
 
 export default App;
