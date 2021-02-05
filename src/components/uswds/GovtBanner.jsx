@@ -18,7 +18,7 @@ const GovtBanner = () => {
                         </button>
                     </div>
                 </header>
-                <div class="usa-banner__content usa-accordion__content" id="gov-banner">
+                <div class="usa-banner__content usa-accordion__content" id="gov-banner" hidden>
                     <div class="grid-row grid-gap-lg">
                         <div class="usa-banner__guidance tablet:grid-col-6">
                             <img class="usa-banner__icon usa-media-block__img" src="assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />

@@ -11,19 +11,21 @@ class MapResults extends Component {
         return (
 
             <div>
-                 <p class='mt-tiny mb0'>Results near {this.props.zipitem.display_name}</p>
-                 <br></br>
-                 <MapContainer bounds={zipitemBounds} zoom={13} scrollWheelZoom={true}>
-          <TileLayer
-            attribution='hi'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {this.props.coords.map((item) =>
-          <MapLocation key={item.id} item={item} />)}
+                <p class='mt-tiny mb0'>Results near {this.props.zipitem.display_name}</p>
+                <br></br>
+                <MapContainer bounds={zipitemBounds} zoom={13} scrollWheelZoom={true} style={{width: '100%',
+  height: '270px'
+}}>
+                <TileLayer
+                    attribution='hi'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {this.props.coords.map((item) =>
+                    <MapLocation key={item.id} item={item} />)}
         </MapContainer>
        
                  
-            </div>
+            </div >
         );
     }
 }
