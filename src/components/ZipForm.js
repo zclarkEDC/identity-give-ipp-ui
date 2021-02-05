@@ -24,8 +24,6 @@ class ZipForm extends React.Component {
 
     //Automatically make call for authentication when page loads
     componentDidMount() {
-        //console.log('starting authentication');
-
         let config = {
             method: 'post',
             url: 'https://give-dev.app.cloud.gov/auth/oauth2/token',
@@ -43,12 +41,10 @@ class ZipForm extends React.Component {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true
             }
-
         }
 
         axios(config)
             .then((response) => {
-                //console.log('here is the KONG response', JSON.stringify(response.data));
                 this.setState({authtoken: JSON.parse(JSON.stringify(response.data))})
             })
             .catch((error) => {
@@ -58,8 +54,6 @@ class ZipForm extends React.Component {
 
     handleChange(event) {
         this.setState({value: event.target.value});
-        //console.log('inside handle change, checking moth props', event.target.)
-
     }
 
     handleSubmit(event) {
@@ -67,19 +61,16 @@ class ZipForm extends React.Component {
         let zip_input = this.state.value;
 
         if (postcodeValidator(zip_input, 'US')) {
-            //alert('Valid zipcode, beep boop');
             this.setState({submittedval: this.state.value});
             this.fetchAddressFromZip(this.state.value);
 
         } else {
-            //alert('Invalid zipcode, beep boop');
             this.setState({showResults: false});
             this.setState({showError: true});
             this.setState({submittedval: this.state.value});
         }
 
     }
-
     fetchData = async values => {
         //const { value } = values; //placeholder for API calls made with the actual zipcode
         var access_token = JSON.stringify(this.state.authtoken.access_token);
@@ -96,10 +87,8 @@ class ZipForm extends React.Component {
                 'Authorization': auth
             }
         };
-        //console.log(config);
         axios(config)
             .then((response) => {
-                //console.log(JSON.stringify(response.data));
                 this.setState({items: JSON.parse(JSON.stringify(response.data))})
             })
             .catch((error) => {
@@ -109,7 +98,6 @@ class ZipForm extends React.Component {
 
     //This method makes a call to OSM to determine the address based on the Zipcode
     fetchAddressFromZip = async zipcode => {
-        //console.log(zipcode);
         let config = {
             method: 'get',
             url: 'https://nominatim.openstreetmap.org/search',
@@ -121,33 +109,23 @@ class ZipForm extends React.Component {
         }
         axios(config)
             .then((response) => {
-                //console.log(JSON.stringify(response.data));
                 this.setState({zipresponse: JSON.parse(JSON.stringify(response.data))})
-
                 //Validate if OSM returned any location results
                 if (this.state.zipresponse?.length) {
-                    //console.log('this array has stuff in it ok? here it is:', this.state.zipresponse)
                     this.fetchData(zipcode);
                     this.setState({showResults: true});
                     this.setState({showError: false});
-
-
                 } else {
                     console.log('no results found, empty array', this.state.zipresponse)
                     this.setState({showResults: false});
                     this.setState({showError: true});
-
                 }
             })
             .catch((error) => {
                 console.log(error);
-            });
-    }
-
+            }); }
     render() {
-
         return (
-
             <div className="grid-container">
                 <div className="grid-row">
                     <div className="grid-col" role="main">
@@ -176,7 +154,6 @@ class ZipForm extends React.Component {
                                     value="Submit"
                                     label="Search"
                                     className="btn btn-primary btn-wide"
-
                                 />
                                 {this.state.showResults ?
                                     <Results items={this.state.items} item={this.state.submittedval}
@@ -189,5 +166,4 @@ class ZipForm extends React.Component {
         );
     }
 }
-
 export default ZipForm;
