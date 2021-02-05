@@ -3,14 +3,11 @@ import Item from './Item';
 import MapResults from './MapResults';
 
 class Results extends React.Component {
-
   constructor(props) {
     super(props);
   }
-
   render() {
     const coords = this.props.items;
-
     return (
       <div id="results" className="search-results">
         <br></br>

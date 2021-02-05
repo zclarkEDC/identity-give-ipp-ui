@@ -12,13 +12,7 @@ class MapLocation extends Component {
 
             <div>
                 <Marker position={[x,y]}>
-                    <Popup> <h6>{fixedtitle}</h6><p>{this.props.item.address}<br />{this.props.item.city}, {this.props.item.state} {this.props.item.postalCode}<br /><a href="url">{this.props.item.phone}</a></p></Popup>
+                    <Popup> <h3>{fixedtitle}</h3>{this.props.item.address}<br />{this.props.item.city}, {this.props.item.state} {this.props.item.postalCode}<br /><a href="url">{this.props.item.phone}</a></Popup>
                 </Marker>
-
-            </div>
-        );
-    }
-}
-
+            </div>);}}
 export default MapLocation;
-
