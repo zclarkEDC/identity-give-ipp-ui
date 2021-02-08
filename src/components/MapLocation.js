@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Marker, Popup } from 'react-leaflet'
+import LineItem from './LineItem'
 
 class MapLocation extends Component {
 
@@ -12,9 +13,8 @@ class MapLocation extends Component {
 
             <div>
                 <Marker position={[x,y]}>
-                    <Popup> <h6>{fixedtitle}</h6><p>{this.props.location.address}<br />{this.props.location.city}, {this.props.location.state} {this.props.location.postalCode}<br /><a href="url">{this.props.location.phone}</a></p></Popup>
+                    <Popup> <h6>{fixedtitle}</h6><LineItem {...this.props.location}/></Popup>
                 </Marker>
-
             </div>
         );
     }
