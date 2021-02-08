@@ -42,9 +42,8 @@ class ZipForm extends React.Component {
     }
 
     axios(config)
-      .then((response) => {
-        //console.log('here is the KONG response', JSON.stringify(response.data));
-        this.setState({ authtoken: JSON.parse(JSON.stringify(response.data)) })
+      .then((responseauth) => {
+        this.setState({ authtoken: JSON.parse(JSON.stringify(responseauth.data)) })
       })
       .catch((error) => {
         console.log(error);
@@ -53,7 +52,6 @@ class ZipForm extends React.Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    //console.log('inside handle change, checking moth props', event.target.)
 
   }
 
@@ -122,7 +120,6 @@ class ZipForm extends React.Component {
 
         //Validate if OSM returned any location results
         if (this.state.zipresponse?.length) {
-          //console.log('this array has stuff in it ok? here it is:', this.state.zipresponse)
           this.fetchData(zipcode);
           this.setState({ showResults: true });
           this.setState({ showError: false });
@@ -144,47 +141,10 @@ class ZipForm extends React.Component {
 
     return (
 
-      <div class="container">
-        <div class="px2 py2 sm-py5 sm-px6 mx-auto sm-mb5 border-box card" role="main">
-
-          {this.state.showError ? <Error item={this.state.submittedval} /> : null}
-
-          <h1 class="h3 my0" >
-            Verify your identity in person
-                </h1>
-          <br></br>
-          <p class='mt-tiny mb0'>
-            You will need to stop by an identity services center to finish verifying your identity.
-                </p>
-          <div class="mb4">
-            <form class="simple_form mt3 sm-mt3 new_user" onSubmit={this.handleSubmit} accept-charset="UTF-8">
-
-              <ZipInput
-                name="zip"
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-                required="required"
-                className="block col-12 field string zip required"
-                aria-invalid="false"
-                aria-required="true"
-                id="zip"
-              />
-              <Button
-                type="submit"
-                value="Submit"
-                label="Search"
-                className="btn btn-primary btn-wide"
-
-              />
-              {this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval} itemzip={this.state.zipresponse} /> : null}
-
-            </form>
-          </div>
-          <div class="mt2 pt1 border-top">
-            <a href="https://secure.login.gov/">Cancel</a></div>
-        </div>
-      </div>
+      <div class="container"> <div class="px2 py2 sm-py5 sm-px6 mx-auto sm-mb5 border-box card" role="main"> {this.state.showError ? <Error item={this.state.submittedval} /> : null} 
+      <h1 class="h3 my0" > Verify your identity in person </h1> <br></br> <p class='mt-tiny mb0'> You will need to stop by an identity services center to finish verifying your identity. </p> 
+      <div class="mb4"> <form class="simple_form mt3 sm-mt3 new_user" onSubmit={this.handleSubmit} accept-charset="UTF-8"> <ZipInput name="zip" type="text" value={this.state.value} onChange={this.handleChange} required="required" className="block col-12 field string zip required" aria-invalid="false" aria-required="true" id="zip" /> <Button type="submit" value="Submit" label="Search" className="btn btn-primary btn-wide" /> {this.state.showResults ? <Results items={this.state.items} item={this.state.submittedval} itemzip={this.state.zipresponse} /> : null} </form> 
+      </div> <div class="mt2 pt1 border-top"> <a href="https://secure.login.gov/">Cancel</a></div> </div> </div>
 
     );
   }
