@@ -11,7 +11,7 @@ import { accordion } from 'identity-style-guide';
 import Banner from './components/SiteBanner';
 import Logo from './components/SiteLogo';
 
-//accordion.on();
+accordion.on();
 
 ReactDOM.render(
   <div><div class="site-wrap bg-light-blue"><Banner/><Logo/><App/></div></div>,
