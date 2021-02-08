@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
 
 class Details extends Component {
-    
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
                 <div class="grid-row">
